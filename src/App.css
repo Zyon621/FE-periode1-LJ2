@@ -1,0 +1,445 @@
+/* Layout: zijbalk + inhoud, zoals in de wireframes */
+.app {
+  display: flex;
+  gap: 20px;
+  min-height: 100svh;
+  padding: 16px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px 32px;
+}
+
+/* Zijbalk */
+.sidebar {
+  flex: 0 0 150px;
+  align-self: flex-start;
+  position: sticky;
+  top: 16px;
+  min-height: calc(100svh - 32px);
+  padding: 14px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pokeball {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar ul {
+  display: grid;
+  gap: 6px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-dot {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--muted);
+  border-radius: 50%;
+}
+
+.nav-link.active {
+  color: var(--blue);
+  background: var(--blue-bg);
+  border-color: var(--text);
+}
+
+.nav-link.active .nav-dot {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+/* Typografie */
+.page-title,
+.detail-heading h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.intro {
+  max-width: 440px;
+  margin: 10px 0 20px;
+  color: var(--muted);
+}
+
+.muted {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.section-label {
+  margin: 28px 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.status {
+  margin: 16px 0;
+  color: var(--muted);
+}
+
+/* Zoekveld */
+.search {
+  max-width: 320px;
+  margin: 16px 0 0;
+}
+
+.search input {
+  width: 100%;
+  padding: 8px 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+/* Knoppen */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 26px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--blue);
+}
+
+.btn-secondary {
+  color: var(--yellow-text);
+  background: var(--yellow);
+}
+
+.btn-large {
+  margin-top: 28px;
+  padding: 12px 40px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link-button {
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: var(--red);
+}
+
+.back-link {
+  display: inline-flex;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Kaarten */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card-grid.featured {
+  margin-top: 0;
+}
+
+.poke-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 100%;
+  padding: 12px 8px;
+  text-align: center;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.poke-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.poke-card small {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.poke-card img,
+.team-card img {
+  image-rendering: pixelated;
+}
+
+/* Badges (type) */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.badge {
+  padding: 2px 12px;
+  font-size: 12px;
+  color: var(--yellow-text);
+  background: var(--yellow);
+  border-radius: 999px;
+}
+
+/* Balken (HP en statistieken) */
+.bar {
+  flex: 1;
+  height: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+/* Team */
+.team-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+}
+
+.team-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-card h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.hp-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.empty-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  min-height: 180px;
+  background: var(--surface);
+}
+
+.empty-slot .muted {
+  font-size: 14px;
+}
+
+.empty-slot:hover {
+  border-color: var(--blue);
+}
+
+.plus {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--red);
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
+}
+
+/* Detail */
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 18px;
+}
+
+.detail-image {
+  display: grid;
+  place-items: center;
+  flex: 0 0 300px;
+  height: 240px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.detail-image img {
+  max-width: 85%;
+  max-height: 85%;
+}
+
+.detail-info {
+  flex: 1 1 320px;
+  max-width: 400px;
+}
+
+.detail-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.detail-info .badges {
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.detail-info .section-label {
+  margin-top: 18px;
+}
+
+.stats {
+  display: grid;
+  gap: 8px;
+}
+
+.stats li {
+  display: grid;
+  grid-template-columns: 110px 1fr 32px;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-name,
+.stat-value {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat-value {
+  text-align: right;
+}
+
+/* Smal scherm: zijbalk wordt een balk bovenaan */
+@media (max-width: 720px) {
+  .app {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar {
+    position: static;
+    flex: none;
+    align-self: stretch;
+    min-height: 0;
+  }
+
+  .sidebar-brand {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar ul {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .detail {
+    gap: 24px;
+  }
+
+  .detail-image {
+    flex-basis: 100%;
+  }
+}

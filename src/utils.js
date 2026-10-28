@@ -38,5 +38,4 @@ export const padId = (id) => `#${String(id).padStart(3, '0')}`
 export const spriteUrl = (id) =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 
-// Hoogste basiswaarde is 255; gebruikt om balken als percentage te tekenen.
 export const statPercent = (value) => Math.min(100, (value / 255) * 100)

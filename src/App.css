@@ -1,4 +1,3 @@
-/* Layout: zijbalk + inhoud, zoals in de wireframes */
 .app {
   display: flex;
   gap: 20px;
@@ -12,7 +11,6 @@
   padding: 4px 8px 32px;
 }
 
-/* Zijbalk */
 .sidebar {
   flex: 0 0 150px;
   align-self: flex-start;
@@ -80,7 +78,6 @@
   border-color: var(--blue);
 }
 
-/* Typografie */
 .page-title,
 .detail-heading h1 {
   font-size: 24px;
@@ -118,7 +115,6 @@
   color: var(--muted);
 }
 
-/* Zoekveld */
 .search {
   max-width: 320px;
   margin: 16px 0 0;
@@ -137,7 +133,6 @@
   color: var(--muted);
 }
 
-/* Knoppen */
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -202,7 +197,6 @@
   font-weight: 700;
 }
 
-/* Kaarten */
 .card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -251,7 +245,6 @@
   image-rendering: pixelated;
 }
 
-/* Badges (type) */
 .badges {
   display: flex;
   flex-wrap: wrap;
@@ -267,7 +260,6 @@
   border-radius: 999px;
 }
 
-/* Balken (HP en statistieken) */
 .bar {
   flex: 1;
   height: 10px;
@@ -283,7 +275,6 @@
   border-radius: 999px;
 }
 
-/* Team */
 .team-grid {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
@@ -346,7 +337,6 @@
   border-radius: 50%;
 }
 
-/* Detail */
 .detail {
   display: flex;
   flex-wrap: wrap;
@@ -411,7 +401,6 @@
   text-align: right;
 }
 
-/* Smal scherm: zijbalk wordt een balk bovenaan */
 @media (max-width: 720px) {
   .app {
     flex-direction: column;

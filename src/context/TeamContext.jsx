@@ -21,7 +21,6 @@ export function TeamProvider({ children }) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(team))
     } catch {
-      // opslag niet beschikbaar: team blijft alleen in het geheugen
     }
   }, [team])
 
@@ -46,7 +45,6 @@ export function TeamProvider({ children }) {
   )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useTeam() {
   const ctx = useContext(TeamContext)
   if (!ctx) throw new Error('useTeam moet binnen TeamProvider gebruikt worden')

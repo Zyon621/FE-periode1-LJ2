@@ -1,9 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { MAX_TEAM, TeamContext } from './teamContextValue'
 
-export const MAX_TEAM = 6
 const STORAGE_KEY = 'pokemon-team'
-
-const TeamContext = createContext(null)
 
 function loadTeam() {
   try {
@@ -43,10 +41,4 @@ export function TeamProvider({ children }) {
       {children}
     </TeamContext.Provider>
   )
-}
-
-export function useTeam() {
-  const ctx = useContext(TeamContext)
-  if (!ctx) throw new Error('useTeam moet binnen TeamProvider gebruikt worden')
-  return ctx
 }

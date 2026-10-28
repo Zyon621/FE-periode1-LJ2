@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { MAX_TEAM, useTeam } from '../context/TeamContext'
+import { MAX_TEAM } from '../context/teamContextValue'
 import useFetch from '../hooks/useFetch'
+import useTeam from '../hooks/useTeam'
 import { capitalize, padId, statLabel, statPercent, typeLabel } from '../utils'
 
 function Detail() {

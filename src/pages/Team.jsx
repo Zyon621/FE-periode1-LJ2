@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { MAX_TEAM, useTeam } from '../context/TeamContext'
+import { MAX_TEAM } from '../context/teamContextValue'
+import useTeam from '../hooks/useTeam'
 import { capitalize, statPercent, typeLabel } from '../utils'
 
 function Team() {

@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import List from './pages/List'
 import Detail from './pages/Detail'
 import Team from './pages/Team'
+import NotFound from './pages/NotFound'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route path="/list" element={<List />} />
               <Route path="/detail/:id" element={<Detail />} />
               <Route path="/team" element={<Team />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
         </div>

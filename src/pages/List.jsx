@@ -1,41 +1,18 @@
-import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import useFetch from '../hooks/useFetch'
 import { capitalize, padId, spriteUrl } from '../utils'
 
 function List() {
-  const [pokemons, setPokemons] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const { data, loading, error } = useFetch(
+    'https://pokeapi.co/api/v2/pokemon?limit=151',
+  )
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('q') ?? ''
 
-  useEffect(() => {
-    let cancelled = false
-
-    async function load() {
-      try {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-        if (!res.ok) throw new Error(`Status ${res.status}`)
-        const data = await res.json()
-        if (cancelled) return
-        setPokemons(
-          data.results.map((p) => ({
-            name: p.name,
-            id: p.url.split('/').filter(Boolean).pop(),
-          })),
-        )
-      } catch (err) {
-        if (!cancelled) setError(err.message)
-      } finally {
-        if (!cancelled) setLoading(false)
-      }
-    }
-
-    load()
-    return () => {
-      cancelled = true
-    }
-  }, [])
+  const pokemons = (data?.results ?? []).map((p) => ({
+    name: p.name,
+    id: p.url.split('/').filter(Boolean).pop(),
+  }))
 
   const handleChange = (e) => {
     const value = e.target.value

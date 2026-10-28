@@ -1,39 +1,17 @@
-import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MAX_TEAM, useTeam } from '../context/TeamContext'
+import useFetch from '../hooks/useFetch'
 import { capitalize, padId, statLabel, statPercent, typeLabel } from '../utils'
 
 function Detail() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { team, isInTeam, addToTeam, removeFromTeam } = useTeam()
-  const [pokemon, setPokemon] = useState(null)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    let cancelled = false
-
-    async function load() {
-      try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        if (!res.ok) throw new Error(`Status ${res.status}`)
-        const data = await res.json()
-        if (!cancelled) {
-          setPokemon(data)
-          setError(null)
-        }
-      } catch (err) {
-        if (!cancelled) setError(err.message)
-      }
-    }
-
-    load()
-    return () => {
-      cancelled = true
-    }
-  }, [id])
-
-  const loading = !error && String(pokemon?.id) !== id
+  const {
+    data: pokemon,
+    loading,
+    error,
+  } = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 
   if (loading) return <p className="status">Laden...</p>
   if (error) {

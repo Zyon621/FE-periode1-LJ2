@@ -1,16 +1,29 @@
-# React + Vite
+# Pokémon Team Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Een React-app waarmee je Pokémon opzoekt, hun statistieken bekijkt en een team van maximaal zes Pokémon samenstelt. De data komt van [PokéAPI](https://pokeapi.co).
 
-Currently, two official plugins are available:
+## Starten
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+npm install
+npm run dev
+```
 
-## React Compiler
+Andere scripts: `npm run build`, `npm run preview` en `npm run lint`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Pagina's
 
-## Expanding the Oxlint configuration
+| Pad | Pagina |
+|---|---|
+| `/` | Home met zoekveld en uitgelichte Pokémon |
+| `/list` | Pokédex met alle 151 Pokémon en zoekfilter |
+| `/detail/:id` | Detail met types, statistieken en knop om toe te voegen aan het team |
+| `/team` | Mijn team |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Structuur
+
+- `src/hooks/useFetch.js`: haalt data op met `fetch`
+- `src/hooks/useTeam.js`: toegang tot het team
+- `src/context/`: team-opslag, bewaard in `localStorage`
+- `src/pages/`: de pagina's
+- `src/components/`: de zijbalk

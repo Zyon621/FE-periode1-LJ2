@@ -36,8 +36,12 @@ export function TeamProvider({ children }) {
     setTeam((current) => current.filter((p) => p.id !== id))
   }
 
+  const clearTeam = () => setTeam([])
+
   return (
-    <TeamContext.Provider value={{ team, isInTeam, addToTeam, removeFromTeam }}>
+    <TeamContext.Provider
+      value={{ team, isInTeam, addToTeam, removeFromTeam, clearTeam }}
+    >
       {children}
     </TeamContext.Provider>
   )

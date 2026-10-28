@@ -4,7 +4,7 @@ import useTeam from '../hooks/useTeam'
 import { capitalize, statPercent, typeLabel } from '../utils'
 
 function Team() {
-  const { team, removeFromTeam } = useTeam()
+  const { team, removeFromTeam, clearTeam } = useTeam()
 
   return (
     <section>
@@ -14,6 +14,12 @@ function Team() {
           {team.length} / {MAX_TEAM} pokémon
         </span>
       </header>
+
+      {team.length > 0 && (
+        <button type="button" className="link-button" onClick={clearTeam}>
+          Team leegmaken
+        </button>
+      )}
 
       <ul className="card-grid team-grid">
         {team.map((p) => (
